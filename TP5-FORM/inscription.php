@@ -34,7 +34,7 @@ include("config.php");
         <input type="text" placeholder="Adresse Email" name="email"><br>
         <input type="text" placeholder="Nom" name="nom"><br>
         <input type="text" placeholder="Prenom" name="prenom"><br>
-        <input type="password" placeholder="Mot de passe" name="pass"><br>
+        <input type="password" placeholder="Mot de passe" name="password"><br>
         <input type="submit" value="Inscription"><br>
         <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
         <button class="btn btn-danger"><a style="color: white" href="index.php">ou connectez-vous</a></button>

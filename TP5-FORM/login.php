@@ -31,7 +31,7 @@ if (count($fails) > 0) {
     mysqli_set_charset($connexionBdd, 'utf8');
     $selectionBase = mysqli_select_db($connexionBdd, 'TP5');
 
-    $requete = "SELECT nom, prenom FROM utilisateur WHERE email = '$email' AND pass = '$password' LIMIT 1"; // on recupere le nom et prenom pour l'afficher mais pas besoins de recuperer mail et mdp pour securité car on le compare deja dans le WHERE
+    $requete = "SELECT nom, prenom FROM utilisateur WHERE email = '$email' AND password = '$password' LIMIT 1"; // on recupere le nom et prenom pour l'afficher mais pas besoins de recuperer mail et mdp pour securité car on le compare deja dans le WHERE
    // $requete = "SELECT nom, prenom FROM utilisateur WHERE email = \"$email\" AND pass = \"$password\" LIMIT 1";  -- FONCTIONNE IDEM
 
 
@@ -42,7 +42,12 @@ if (count($fails) > 0) {
 
     if (is_array($result)){ // SI J'ARRIVE A ME CONNECTER ...
 
+        session_start();
+        $_SESSION['nom'] = $result['nom'];
+
+
         echo "Bonjour " . $result['prenom'] . " " . $result['nom']; // si le array existe, cest que les logins existent bien dans la BDD -> donc on affiche son nom et prenom
+        echo "<a href='article.php'>articles</a>";
 
     } else{ // SI JE N4ARRIVE PAS A ME CONNECTER ...
 
